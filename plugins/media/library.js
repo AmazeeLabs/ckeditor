@@ -92,7 +92,7 @@
     stripDivs: function (formattedMedia) {
       // Check to see if the image tag has divs to strip
       var stripped = null;
-      if ($(formattedMedia).is('img')) {
+      if ($(formattedMedia).is('img') || $(formattedMedia).is('span')) {
         stripped = this.outerHTML($(formattedMedia));
       } else {
         stripped = this.outerHTML($('img', $(formattedMedia)));
