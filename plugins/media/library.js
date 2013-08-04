@@ -35,6 +35,13 @@
       var mediaFile = mediaFiles[0];
       var options = {};
       Drupal.media.popups.mediaStyleSelector(mediaFile, function (formattedMedia) {
+    	// If we have to alter the title of the link, do it now.
+    	if (formattedMedia.options.document_link_title != '') { 
+	    	var jq_context = $('<div></div>').html(formattedMedia.html);
+	    	jq_context.find('span.file a').html(formattedMedia.options.document_link_title);
+	    	formattedMedia.html = jq_context.html();
+    	}
+    	// End custom changes.
         Drupal.settings.ckeditor.plugins['media'].insertMediaFile(mediaFile, formattedMedia.type, formattedMedia.html, formattedMedia.options, CKEDITOR.instances[instanceId]);
       }, options);
 
