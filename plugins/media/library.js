@@ -66,7 +66,6 @@
         var toInsert = this.outerHTML(imgElement);
       }
 
-      console.log(imgElement);
       // Create an inline tag
       var inlineTag = Drupal.settings.ckeditor.plugins['media'].createTag(imgElement);
       // Add it to the tag map in case the user switches input formats
