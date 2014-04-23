@@ -48,12 +48,23 @@ function hook_ckeditor_plugin() {
       'path' => drupal_get_path('module', 'my_module') . '/plugin_dir/',
       'buttons' => array(
         'button_name' => array(
-          'icon' => 'path to button icon',
+          'icon' => 'icon/plugin_name.png',
           'label' => 'Button Label',
         )
       )
     )
   );
+}
+
+/**
+ * Hook to extend/change CKEditor plugins.
+ *
+ * @param $plugins
+ *   An associative array of plugins.
+ */
+function hook_ckeditor_plugin_alter(&$plugins) {
+  // Remove a plugin button.
+  unset($plugins['plugin_name']['buttons']['button']);
 }
 
 /**

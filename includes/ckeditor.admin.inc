@@ -1766,7 +1766,7 @@ function ckeditor_toolbar_buttons_all() {
     '__group' => array('name' => FALSE, 'icon' => $path . '/images/buttons/group.png', 'title' => 'Group', 'row' => 4)
   );
 
-  $plugins = ckeditor_load_plugins(TRUE);
+  $plugins = ckeditor_load_plugins();
   foreach ($plugins as $plugin_name => $plugin) {
     if (!isset($plugin['buttons']) || $plugin['buttons'] == FALSE)
       continue;
