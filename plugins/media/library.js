@@ -90,6 +90,11 @@
        * @return HTML of <img> tag inside formattedMedia
        */
     stripDivs: function (formattedMedia) {
+      // If there is not an image, return the media as is. This keeps
+      // other kinds of media (such as audio) from getting lost.
+      if (formattedMedia.indexOf('img') == -1) {
+        return formattedMedia;
+      }
       // Check to see if the image tag has divs to strip
       var stripped = null;
       if ($(formattedMedia).is('img')) {
